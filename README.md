@@ -9,9 +9,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Running and compiling
 
-To compile and run this project it is recommended to use POSIX environment like Linux, MacOS or Bash on Windows.
+To compile and run this project it is recommended to use a POSIX environment like Linux, MacOS or Bash on Windows.
 
 1. Download and install NodeJS and NPM
 2. Run **npm install**
-3. Run **gulp** or **gulp release** to generate production ready output
+3. Run **gulp** or **gulp release** to generate a production ready output
 4. To avoid local file permission issues, host the project using any web server
