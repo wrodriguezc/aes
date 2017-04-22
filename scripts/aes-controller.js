@@ -28,7 +28,7 @@ var AES = function () {
         //Size of padded array used to store encrypted data. Size of the
         //original data increases by 4 bytes to store original file size 
         //Array must be padded to 16 bytes
-        var padding = 16 - ((originalSize + HEADER_SIZE)% 16);
+        var padding = 16 - ((originalSize + HEADER_SIZE) % 16);
         //Converts the data buffer to an array of bytes
         var dataBytes = new Uint8Array(originalSize + HEADER_SIZE + padding);
         //Creates an instance of the cipher in ECB mode
@@ -39,7 +39,7 @@ var AES = function () {
         dataBytes[1] = ((originalSize & 0x00FF0000) >> 16);
         dataBytes[2] = ((originalSize & 0x0000FF00) >> 8);
         dataBytes[3] = ((originalSize & 0x000000FF) >> 0);
-        
+
         //Copy the plain data bytes to the padded data block
         dataBytes.set(originalData, 4);
 
@@ -52,13 +52,13 @@ var AES = function () {
         //Generates a key from the password
         var key_256 = pbkdf2.pbkdf2Sync(password, SALT, 1, 256 / 8, "sha512");
         var encryptedBytes = new Uint8Array(data);
-        
+
         //Creates an instance of the cipher in ECB mode
         var aesEcb = new aesjs.ModeOfOperation.ecb(key_256);
         //Decrypts the data
         var decryptedData = aesEcb.decrypt(encryptedBytes);
         var originalSize = decryptedData[0] << 24 | decryptedData[1] << 16 | decryptedData[2] << 8 | decryptedData[3];
-        
+
         //Retuns the data minus the header
         return decryptedData.slice(HEADER_SIZE, HEADER_SIZE + originalSize);
     };

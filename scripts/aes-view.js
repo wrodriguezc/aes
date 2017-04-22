@@ -58,7 +58,7 @@ var AESView = function () {
 
         $("#reset").click(function () {
             self.onReset();
-        });        
+        });
     };
 
     self.onEncode = function () {
