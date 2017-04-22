@@ -15,3 +15,7 @@ To compile and run this project it is recommended to use a POSIX environment lik
 2. Run **npm install**
 3. Run **gulp** or **gulp release** to generate a production ready output
 4. To avoid local file permission issues, host the project using any web server
+
+## Testing online
+
+http://aesjs.azurewebsites.net/dist/
